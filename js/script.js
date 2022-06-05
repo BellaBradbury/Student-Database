@@ -2,24 +2,34 @@
 Treehouse Techdegree: Data Pagination and Filtering
 */
 
+// GLOBAL VARIABLES
 const studentList = document.querySelector('.student-list');
 const linkList = document.querySelector('.link-list');
+const pageHeader = document.querySelector('.header');
 
-/*
-This function will create and insert/append the elements needed to display a "page" of nine students
-*/
+// INSERT SEARCH BAR ONTO DOCUMENT
+// let searchBar = `
+//   <label for="search" class="student-search">
+//     <span>Search by name</span>
+//     <input id="search" placeholder="Search by name...">
+//     <button type="button" class="search-button"><img src="img/icn-search.svg" alt="Search icon"></button>
+//   </label>
+// `;
+// pageHeader.insertAdjacentHTML('beforeend', searchBar);
+
+// INSERTS UP TO 9 STUDENT PROFILES PER PAGE ONTO DOCUMENT
 function showPage(list, page) {
   const startIndex = (page * 9) - 9;
   const endIndex = page * 9;
   studentList.innerHTML = '';
 
-  for ( let i = 0; i > list.length; i++ ) {
+  for ( let i = 0; i < list.length; i++ ) {
     if ( i >= startIndex && i < endIndex ) {
       let studentProfile = `
         <li class="student-item cf">
           <div class="student-details">
             <img class="avatar" src="${list[i].picture.thumbnail}" alt="${list[i].name}'s Profile Picture">
-            <h3>${list[i].name.first} ${list[i].name.last}</h3>
+            <h3 class="student-name">${list[i].name.first} ${list[i].name.last}</h3>
             <span class="email">${list[i].email}</span>
           </div>
           <div class="joined-details">
@@ -34,15 +44,13 @@ function showPage(list, page) {
 }
 
 
-/*
-Create the `addPagination` function
-This function will create and insert/append the elements needed for the pagination buttons
-*/
+// CREATES PAGE NUMBER BUTTONS AND
+  // ACTIVATES/DEACTIVATES BUTTONS WHEN CLICKED ON/OFF
 function addPagination(list) {
   let pagesLength = Math.ceil(list.length / 9);
   linkList.innerHTML = '';
 
-  for ( let i = 0; i > pagesLength; i++ ) {
+  for ( let i = 0; i < pagesLength; i++ ) {
     let pageCode = `
       <li>
         <button type="button">${i}</button>
@@ -67,7 +75,34 @@ function addPagination(list) {
   });
 }
 
+// ALLOWS FUNCTION OF SEARCH BAR
+// function searchProfiles() {
+//   const names = document.querySelector('.student-name').innerHTML;
+//   const namesTrue = names.value.toUpperCase();
+//   const namesList = namesTrue.filter();
+//
+//   if (namesList.length > 0) {
+//     showPage(namesList, 1);
+//     addPagination(namesList);
+//   } else if (namesList === 0) {
+//     const noMatch = `<h2>Sorry, there are no profiles that match your search.</h2>`;
+//     studentList.innerHTML = '';
+//     studentList.insertAdjacentHTML('afterbegin', noMatch);
+//   }
+// }
+//
+// const searchButton = document.querySelector('.search-button');
+// const searchInput = document.querySelector('.search');
+//
+// searchButton.addEventListener('click', (e) => {
+//   e.preventDefault();
+//   searchProfiles(search, data);
+// });
+//
+// searchInput.addEventListener('keyup', () => {
+//   searchProfiles(search, data);
+// });
 
-// Call functions
+// CALL FUNCTIONS FOR PAGE LAYOUT
 showPage(data, 1);
 addPagination(data);
