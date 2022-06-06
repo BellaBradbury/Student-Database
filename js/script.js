@@ -8,14 +8,14 @@ const linkList = document.querySelector('.link-list');
 const pageHeader = document.querySelector('.header');
 
 // INSERT SEARCH BAR ONTO DOCUMENT
-// let searchBar = `
-//   <label for="search" class="student-search">
-//     <span>Search by name</span>
-//     <input id="search" placeholder="Search by name...">
-//     <button type="button" class="search-button"><img src="img/icn-search.svg" alt="Search icon"></button>
-//   </label>
-// `;
-// pageHeader.insertAdjacentHTML('beforeend', searchBar);
+let searchBar = `
+  <label for="search" class="student-search">
+    <span>Search by name</span>
+    <input id="search" placeholder="Search by name...">
+    <button type="button" class="search-button"><img src="img/icn-search.svg" alt="Search icon"></button>
+  </label>
+`;
+pageHeader.insertAdjacentHTML('beforeend', searchBar);
 
 // INSERTS UP TO 9 STUDENT PROFILES PER PAGE ONTO DOCUMENT
 function showPage(list, page) {
@@ -76,32 +76,33 @@ function addPagination(list) {
 }
 
 // ALLOWS FUNCTION OF SEARCH BAR
-// function searchProfiles() {
-//   const names = document.querySelector('.student-name').innerHTML;
-//   const namesTrue = names.value.toUpperCase();
-//   const namesList = namesTrue.filter();
-//
-//   if (namesList.length > 0) {
-//     showPage(namesList, 1);
-//     addPagination(namesList);
-//   } else if (namesList === 0) {
-//     const noMatch = `<h2>Sorry, there are no profiles that match your search.</h2>`;
-//     studentList.innerHTML = '';
-//     studentList.insertAdjacentHTML('afterbegin', noMatch);
-//   }
-// }
-//
-// const searchButton = document.querySelector('.search-button');
-// const searchInput = document.querySelector('.search');
-//
-// searchButton.addEventListener('click', (e) => {
-//   e.preventDefault();
-//   searchProfiles(search, data);
-// });
-//
-// searchInput.addEventListener('keyup', () => {
-//   searchProfiles(search, data);
-// });
+function searchProfiles() {
+  const names = document.querySelector('.student-name').innerHTML;
+  const namesTrue = names.value.toUpperCase();
+  const namesList = namesTrue.filter();
+
+  if (namesList.length > 0) {
+    showPage(namesList, 1);
+    addPagination(namesList);
+  } else if (namesList === 0) {
+    const noMatch = `<h2>Sorry, there are no profiles that match your search.</h2>`;
+    studentList.innerHTML = '';
+    studentList.insertAdjacentHTML('afterbegin', noMatch);
+  }
+}
+
+const searchButton = document.querySelector('.search-button');
+const searchInput = document.querySelector('.search');
+
+searchButton.addEventListener('click', (e) => {
+  searchButton = e.target;
+  e.preventDefault();
+  searchProfiles(search, data);
+});
+
+searchInput.addEventListener('keyup', () => {
+  searchProfiles(search, data);
+});
 
 // CALL FUNCTIONS FOR PAGE LAYOUT
 showPage(data, 1);
