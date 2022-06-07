@@ -50,7 +50,7 @@ function addPagination(list) {
   let pagesLength = Math.ceil(list.length / 9);
   linkList.innerHTML = '';
 
-  for ( let i = 0; i < pagesLength; i++ ) {
+  for ( let i = 1; i < pagesLength; i++ ) {
     let pageCode = `
       <li>
         <button type="button">${i}</button>
