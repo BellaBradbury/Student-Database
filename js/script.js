@@ -29,7 +29,7 @@ function showPage(list, page) {
         <li class="student-item cf">
           <div class="student-details">
             <img class="avatar" src="${list[i].picture.thumbnail}" alt="${list[i].name}'s Profile Picture">
-            <h3 class="student-name">${list[i].name.first} ${list[i].name.last}</h3>
+            <h3>${list[i].name.first} ${list[i].name.last}</h3>
             <span class="email">${list[i].email}</span>
           </div>
           <div class="joined-details">
@@ -75,33 +75,34 @@ function addPagination(list) {
   });
 }
 
-// ALLOWS FUNCTION OF SEARCH BAR
-function searchProfiles() {
-  const names = document.querySelector('.student-name').innerHTML;
-  const namesTrue = names.value.toUpperCase();
-  const namesList = namesTrue.filter();
+// CHECKS USER INPUT AGAINST KNOWN PROFILES AND DISPLAYS THEM
+const userSearch = document.getElementById('search');
 
-  if (namesList.length > 0) {
-    showPage(namesList, 1);
-    addPagination(namesList);
-  } else if (namesList === 0) {
-    const noMatch = `<h2>Sorry, there are no profiles that match your search.</h2>`;
-    studentList.innerHTML = '';
-    studentList.insertAdjacentHTML('afterbegin', noMatch);
+const searchProfiles = (searchValue, studentList) => {
+  let namesArr = [];
+
+  for ( let i = 0; i < studentList.length; i++ ) {
+    if ( studentList[i].name.first.toUpperCase().includes(searchValue) || studentList[i].name.last.toUpperCase().includes(searchValue) ) {
+      namesArr.push(studentList[i]);
+    }
   }
-}
 
-const searchButton = document.querySelector('.search-button');
-const searchInput = document.querySelector('.search');
+  if ( namesArr.length === 0 ) {
+    studentList.innerHTML = `<li>There are no profiles matching your search</li>`;
+    let firstLi = studentList.firstChild;
+    firstLi.className = 'result';
+    linkList.style.display = 'none';
+  } else {
+    linkList.style.display = 'initial';
+    showPage(namesArr,1);
+    addPagination(namesArr);
+  }
+};
 
-searchButton.addEventListener('click', (e) => {
-  searchButton = e.target;
-  e.preventDefault();
-  searchProfiles(search, data);
-});
-
-searchInput.addEventListener('keyup', () => {
-  searchProfiles(search, data);
+// CALLS SEARCH FUNCTION
+userSearch.addEventListener('keyup', (e) => {
+  let searchInput = e.target.value.toUpperCase();
+  searchProfiles(searchInput, data);
 });
 
 // CALL FUNCTIONS FOR PAGE LAYOUT
