@@ -89,11 +89,7 @@ const searchProfiles = (searchValue, studentList) => {
 
   if ( namesArr.length === 0 ) {
     studentList.innerHTML = `<li>There are no profiles matching your search</li>`;
-    let firstLi = studentList.firstChild;
-    firstLi.className = 'result';
-    linkList.style.display = 'none';
   } else {
-    linkList.style.display = 'initial';
     showPage(namesArr,1);
     addPagination(namesArr);
   }
