@@ -61,8 +61,12 @@ function addPagination(list) {
   }
 
   let pageOne = linkList.firstElementChild;
-  pageOne.classList.add('active');
 
+  if (pageOne) {
+    pageOne.classList.add('active');
+  } else {
+      studentList.innerHTML = `<li>There are no profiles matching your search</li>`;
+  }
   linkList.addEventListener('click', (e) => {
     const targetPage = e.target;
 
@@ -86,13 +90,8 @@ const searchProfiles = (searchValue, studentList) => {
       namesArr.push(studentList[i]);
     }
   }
-
-  if ( namesArr.length === 0 ) {
-    studentList.innerHTML = `<li>There are no profiles matching your search</li>`;
-  } else {
     showPage(namesArr,1);
     addPagination(namesArr);
-  }
 };
 
 // CALLS SEARCH FUNCTION
