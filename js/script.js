@@ -50,7 +50,7 @@ function addPagination(list) {
   let pagesLength = Math.ceil(list.length / 9);
   linkList.innerHTML = '';
 
-  for ( let i = 1; i < pagesLength; i++ ) {
+  for ( let i = 1; i <= pagesLength; i++ ) {
     let pageCode = `
       <li>
         <button type="button">${i}</button>
@@ -63,17 +63,18 @@ function addPagination(list) {
   let pageOne = linkList.firstElementChild;
 
   if (pageOne) {
-    pageOne.classList.add('active');
+    pageOne.firstElementChild.classList.add('active');
   } else {
       studentList.innerHTML = `<li>There are no profiles matching your search</li>`;
   }
+
   linkList.addEventListener('click', (e) => {
     const targetPage = e.target;
 
     if (targetPage.tagName === 'BUTTON') {
-      targetPage.classList.add('active');
       let activePage = document.querySelector('.active');
       activePage.classList.remove('active');
+      targetPage.classList.add('active');
       showPage(list, targetPage.textContent);
     }
   });
