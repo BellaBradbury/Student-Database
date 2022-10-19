@@ -1,5 +1,5 @@
 # Data Pagination And Filtering With JavaScript
-Team Treehouse - Front End Web Development TechDegree - Project 6
+Team Treehouse - Web Development TechDegree - Project 6
 
 Submitted 6/8/22 ***EXCEEDS EXPECTATIONS***
 
