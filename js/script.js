@@ -86,9 +86,9 @@ const userSearch = document.getElementById('search');
 const searchProfiles = (searchValue, studentList) => {
   let namesArr = [];
 
-  for ( let i = 0; i < studentList.length; i++ ) {
-    if ( studentList[i].name.first.toUpperCase().includes(searchValue) || studentList[i].name.last.toUpperCase().includes(searchValue) ) {
-      namesArr.push(studentList[i]);
+  for (const element of studentList) {
+    if ( element.name.first.toUpperCase().includes(searchValue) || element.name.last.toUpperCase().includes(searchValue) ) {
+      namesArr.push(element);
     }
   }
     showPage(namesArr,1);
