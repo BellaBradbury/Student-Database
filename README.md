@@ -1,7 +1,9 @@
 # Data Pagination And Filtering With JavaScript
 Team Treehouse - Web Development TechDegree - Project 6
-
-Submitted 6/8/22 ***EXCEEDS EXPECTATIONS***
+  - Submitted 6/8/22 ***EXCEEDS EXPECTATIONS***
+  
+ Team Treehouse - Full Stack JavaScript TechDegree - Project 2
+  - Submitted 1/20/23 ***EXCEEDS EXPECTATIONS***
 
 -SKILLS USED-
 * JavaScript
