@@ -1,5 +1,6 @@
 /*
-Treehouse Techdegree: Data Pagination and Filtering
+Treehouse Techdegree:
+FSJS Project 2 - Data Pagination and Filtering
 */
 
 // Array of student objects

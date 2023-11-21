@@ -1,0 +1,6 @@
+# SYSTEM FILES
+.vscode
+.DS_Store
+
+# ORIGINAL PROJECT
+x_init_submits/
