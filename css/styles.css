@@ -1,4 +1,4 @@
-/* Treehouse Techdegree: Data Pagination and Filtering */
+/* New FSJS project 2 - List Pagination and Filter - v2 - Data version */
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;800&display=swap');
 
@@ -98,6 +98,7 @@ header h2 {
 }
 
 .avatar {
+  margin: 0 auto;
   border-radius: 50%;
   background-color: white;
   background-blend-mode: multiply, luminosity;
