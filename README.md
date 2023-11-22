@@ -3,7 +3,7 @@
 
 ---APP OVERVIEW---
 
-  &nbsp; &nbsp; &nbsp; This app displays a mock student database using static data. A user can find students by either utilizing the pagination buttons at the bottom of the page or via the search bar at the top of the page. The search is case insensitive and works with partial matches.
+  &nbsp; &nbsp; &nbsp; This app displays a mock student database using static data. A user can find students by either utilizing the pagination buttons at the bottom of the page or via the search bar at the top of the page. A search is case insensitive and works with partial matches.
 
   [VISIT APP](https://bellabradbury.github.io/Student-Database/)
 
