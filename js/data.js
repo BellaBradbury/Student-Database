@@ -718,51 +718,35 @@ const data = [
 
 
 /* ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---- DATA MAINTENANCE */
-function dataTests() {
-  // number of quote objects
-  console.log( 'AMOUNT OF QUOTES:', quotes.length );
-
+// TESTING ON FOR ARR LENGTH & DUPLICATES
+function dataTests(list, item=null, len=null) {
+  // number of items in array
+  function numOfItems(list) { console.log('AMOUNT OF OBJECTS', list.length) };
+  numOfItems(list)
   // find duplicates
-  let duplicates = [];
-  let allQuotes = [];
-  quotes.forEach( (obj) => {
-    allQuotes.push(obj.quote);
-  });
-
-  for(let i = 0; i < quotes.length; i++) {
-    const element = quotes[i].quote;
-    let dupeCount = 0;
-    
-    allQuotes.forEach( (quote) => {
-      if (quote === element) {
-        dupeCount++;
-        if (dupeCount > 1) {
-          duplicates.push(quote);
-        }
-      }
-    });
-  };
-  if (duplicates.length > 0) {
-    console.log('DUPLICATES:', duplicates);
-  } else {
-    console.log('NO DUPLICATES!')
+  function findDuplicates(list, item=null) {
+    function getEl(complex, simple) { let element; if (item === null) { element = simple } else { element = complex} return element.toLowerCase() }
+    let duplicates = [];  let allItems = [];
+    list.forEach( (obj) => { let element = getEl( eval(`obj.${item}`), obj ); allItems.push(element) } );
+    for(let i = 0; i < list.length; i++) {
+      let dupeCount = 0; let element = getEl( eval( `list[${i}].${item}` ), list[i] );
+      allItems.forEach( (obj) => { if (obj === element) { dupeCount++; if (dupeCount > 1) { duplicates.push(obj) } } } ) ;
+    };
+    duplicates.length > 0 ? console.log('DUPLICATES:', duplicates) : console.log('NO DUPLICATES!');
   }
-
-  // find longest quote
-  let tooLong = [];
-  quotes.forEach( (quote) => {
-    if (quote.quote.length > 75) {
-      tooLong.push(quote.quote);
+  findDuplicates(list, item)
+  function findTooLong() {
+    if (len != null) {
+      let tooLong = [];
+      list.forEach( (obj) => { let element = getEl( eval(`obj.${item}`), obj ); if (element.length > len) { tooLong.push(element) } } );
+      tooLong.length > 0 ? console.log('EXCEEDS CHARACTER LIMIT:', tooLong) : console.log('ALL ITEMS MEET LENGTH REQUIREMENTS!');
     }
-  });
-  if (tooLong.length > 0) {
-    console.log('TOO LONG FOR PAGE:', tooLong);
-  } else {
-    console.log('ALL QUOTES MEET LENGTH REQUIREMENTS!')
   }
+  // findTooLong()
 }
+// COMMENT IN/OUT TO ENABLE/DISABLE TEST
+// dataTests(data, `email`);
 
-// dataTests();
 
 /* ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- */
 /* Bella Bradbury, 2023 */
