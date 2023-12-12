@@ -1,9 +1,4 @@
-/*
-Treehouse Techdegree:
-FSJS Project 2 - Data Pagination and Filtering
-*/
-
-// Array of student objects
+/* ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- - DATA ARR */
 const data = [
   {
     name: {
@@ -720,3 +715,54 @@ const data = [
     },
   },
 ];
+
+
+/* ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---- DATA MAINTENANCE */
+function dataTests() {
+  // number of quote objects
+  console.log( 'AMOUNT OF QUOTES:', quotes.length );
+
+  // find duplicates
+  let duplicates = [];
+  let allQuotes = [];
+  quotes.forEach( (obj) => {
+    allQuotes.push(obj.quote);
+  });
+
+  for(let i = 0; i < quotes.length; i++) {
+    const element = quotes[i].quote;
+    let dupeCount = 0;
+    
+    allQuotes.forEach( (quote) => {
+      if (quote === element) {
+        dupeCount++;
+        if (dupeCount > 1) {
+          duplicates.push(quote);
+        }
+      }
+    });
+  };
+  if (duplicates.length > 0) {
+    console.log('DUPLICATES:', duplicates);
+  } else {
+    console.log('NO DUPLICATES!')
+  }
+
+  // find longest quote
+  let tooLong = [];
+  quotes.forEach( (quote) => {
+    if (quote.quote.length > 75) {
+      tooLong.push(quote.quote);
+    }
+  });
+  if (tooLong.length > 0) {
+    console.log('TOO LONG FOR PAGE:', tooLong);
+  } else {
+    console.log('ALL QUOTES MEET LENGTH REQUIREMENTS!')
+  }
+}
+
+// dataTests();
+
+/* ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- */
+/* Bella Bradbury, 2023 */

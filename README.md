@@ -41,6 +41,7 @@
   - *NEW FEATURES*
     - Clear search button.
     - Footer added.
+    - Pagination pinned to the bottom of the page.
 
 </br>
 

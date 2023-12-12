@@ -82,6 +82,7 @@ header h2 {
 .student-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-auto-rows: minmax(280px, 1fr);
   grid-gap: 2em;
 }
 
@@ -166,12 +167,31 @@ header h2 {
 	box-shadow: 0 1px 8px 0 rgba(22, 42, 90, 0.05);
 	transition: 0.4s;
 }
+.student-search .clear-btn {
+  background-color: rgb(229, 238, 250);
+  color: #6d778a;
+}
 
 .pagination li button.active, .pagination li button:hover {
   background-color: #1e90ff;
   color: #fff;
 }
+.pagination li button:focus, .search-btn:focus, .clear-btn:focus {
+  outline: none;
+  border: 2px solid rgb(226, 114, 114);
+  background-color: #0d3f71;
+  color: white;
+}
 
+#search:focus {
+  outline: none;
+  border: 2px solid rgb(226, 114, 114);
+  background-color: rgba(13, 63, 113, 0.10);
+}
+
+.search-btn, .clear-btn, #search {
+  transition: 0.4s;
+}
 
 .student-search span {
   position: absolute;
@@ -189,12 +209,27 @@ header h2 {
 	font-family: 'Nunito', sans-serif;
 	display: block;
 	font-size: 1.5rem;
-	color: #6d778a;
-	width: 500px;
-	margin-top: 15px;
+	color: #14161c;
+	width: 100%;
+  text-align: center;
+	margin-top: 30px;
 	margin-bottom: 15px;
+  border-top: #0d3f71 5px solid;
+  padding: 5%;
+}
+.no-results h3 {
+  font-size: 2rem;
+  margin-bottom: 3%;
 }
 
+.no-results strong {
+  color: #6a7679;
+  text-decoration: underline;
+}
+
+.sb {
+  opacity: 0;
+}
 
 
 @media screen and (min-width: 700px) {
