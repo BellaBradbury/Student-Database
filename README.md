@@ -38,7 +38,7 @@
 
 `|| *** ----- VERSIONS ----- *** ||`
 
----2.0--- &nbsp; &nbsp; &nbsp; *IN PROGRESS*
+---2.0--- &nbsp; &nbsp; &nbsp; 12/20/2023
   - *NEW FEATURES*
     - Users can clear the search bar and display all student data via the 'Clear Search' button at the far right of the search bar.
     - Footer added at bottom of the page providing more information about the application.
