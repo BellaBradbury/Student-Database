@@ -1,7 +1,6 @@
-/* New FSJS project 2 - List Pagination and Filter - v2 - Data version */
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;800&display=swap');
 
+/* ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ------ 0px */
 * {
 	box-sizing: border-box;
 }
@@ -10,6 +9,9 @@ body {
 	font-family: 'Montserrat', Helvetica, sans-serif;
 	background-color: rgb(229, 238, 250);
   transition: 0.4s;
+  max-width: 1024px;
+  margin: auto;
+  width: 95%;
 }
 
 ul {
@@ -18,14 +20,8 @@ ul {
   list-style: none;
 }
 
-.page {
-  max-width: 1024px;
-  margin: auto;
-  width: 95%;
-}
 
-
-
+/* HEADER */
 header {
   text-align: center;
 	display: flex;
@@ -43,13 +39,12 @@ header h2 {
 	margin-bottom: 25px;
 }
 
-
-
-.student-search {
+/* SEARCH BAR */
+#student-search {
   display: flex;
 }
 
-.student-search input {
+#student-search input {
   width: 100%;
   border-radius: 4px 0 0 4px;
   border: 1px solid rgb(30, 144, 255);
@@ -57,14 +52,13 @@ header h2 {
   font-size: 14px;
 }
 
-.student-search input::placeholder {
+#student-search input::placeholder {
   color: #929b9e;
 }
 
-.student-search button {
+#student-search button {
   cursor: pointer;
   width: 55px;
-  border-radius: 0 4px 4px 0;
   border: 1px solid #1e90ff;
   border-left: none;
   padding: 0px 5px;
@@ -73,13 +67,44 @@ header h2 {
   color: #fff;
 }
 
-.student-search button img {
+#student-search #clear-btn {
+  border-radius: 0 4px 4px 0;
+  background-color: rgb(229, 238, 250);
+  color: #6d778a;
+  font-size: larger;
+  font-weight: bold;
+}
+
+#student-search button img {
   width: 25px;
 }
 
+/* NO RESULTS CARD */
+#no-results {
+	font-family: 'Nunito', sans-serif;
+	display: block;
+	font-size: 1.5rem;
+	color: #14161c;
+	width: 100%;
+  text-align: center;
+	margin-top: 30px;
+	margin-bottom: 15px;
+  border-top: #0d3f71 5px solid;
+  padding: 5%;
+}
+#no-results h3 {
+  font-size: 2rem;
+  margin-bottom: 3%;
+}
+
+#no-results strong {
+  color: #6a7679;
+  text-decoration: underline;
+}
 
 
-.student-list {
+/* STUDENT DATA GRID */
+#student-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   grid-auto-rows: minmax(280px, 1fr);
@@ -142,19 +167,23 @@ header h2 {
   margin-top: 1.1em;
 }
 
+.sb {
+  opacity: 0;
+}
 
 
-.pagination {
+/* PAGINATION */
+#pagination {
   margin: 30px 0 60px;
   text-align: center;
 }
 
-.pagination li {
+#pagination li {
   display: inline;
   padding: 0 3px;
 }
 
-.pagination li button {
+#pagination li button {
   font-size: 1em;
   cursor: pointer;
 	outline: none;
@@ -165,18 +194,14 @@ header h2 {
   text-decoration: none;
 	color: #1e90ff;
 	box-shadow: 0 1px 8px 0 rgba(22, 42, 90, 0.05);
-	transition: 0.4s;
-}
-.student-search .clear-btn {
-  background-color: rgb(229, 238, 250);
-  color: #6d778a;
 }
 
-.pagination li button.active, .pagination li button:hover {
+/* BUTTON STATES */
+#pagination li button.active, #pagination li button:hover {
   background-color: #1e90ff;
   color: #fff;
 }
-.pagination li button:focus, .search-btn:focus, .clear-btn:focus {
+#pagination li button:focus, #search-btn:focus, #clear-btn:focus {
   outline: none;
   border: 2px solid rgb(226, 114, 114);
   background-color: #0d3f71;
@@ -189,52 +214,15 @@ header h2 {
   background-color: rgba(13, 63, 113, 0.10);
 }
 
-.search-btn, .clear-btn, #search {
+/* #search-btn, #clear-btn, #search {
   transition: 0.4s;
-}
+} */
 
-.student-search span {
-  position: absolute;
-  clip: rect(1px, 1px, 1px, 1px);
-  padding: 0;
-  border: 0;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-}
-
-
-
-.no-results {
-	font-family: 'Nunito', sans-serif;
-	display: block;
-	font-size: 1.5rem;
-	color: #14161c;
-	width: 100%;
-  text-align: center;
-	margin-top: 30px;
-	margin-bottom: 15px;
-  border-top: #0d3f71 5px solid;
-  padding: 5%;
-}
-.no-results h3 {
-  font-size: 2rem;
-  margin-bottom: 3%;
-}
-
-.no-results strong {
-  color: #6a7679;
-  text-decoration: underline;
-}
-
-.sb {
-  opacity: 0;
-}
-
+/* ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---- 700px */
 
 @media screen and (min-width: 700px) {
 
-	.page {
+ body {
 		width: 70%;
 	}
 	
@@ -254,3 +242,6 @@ header h2 {
 		box-shadow: 0 4px 16px 0 rgba(22, 42, 90, 0.09);
 	}
 }
+
+/* ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- */
+/* Bella Bradbury, 2023 */

@@ -1,24 +1,40 @@
 /* ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---- GLOBAL VARIABLES */
 const searchCot = document.getElementsByTagName('header')[0];
-const listCot = document.getElementsByClassName('student-list')[0];
-const pageCot = document.getElementsByClassName('link-list')[0];
+const listCot = document.getElementById('student-list');
+const pageCot = document.getElementById('pagination');
 
 const itmCount = 9;
 let searchMatches = [];
 
 
 /* ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- HTML INSERTS */
+/* SEARCH */
+const searchBar = `<label for="search" id="student-search" aria-label="Search bar">
+                     <input id="search" placeholder="Search by name..." aria-label="Input search here">
+                     <button type="button" id='search-btn' aria-label="Submit search">
+                        <img src="img/icn-search.svg" alt="Magnifying glass icon" aria-hidden="true">
+                     </button>
+                     <button type="button" id='clear-btn' aria-label="Clear search">X</button>
+                  </label>`
+function noResults(input) {
+   const html = `<section id="no-results">
+                     <h3>THERE ARE NO RESULTS FOR <strong>${input}</strong></h3>
+                     <p>Please try again!</p>
+                  </section>`
+   return html
+}
+
 /* STUDENT DATA */
 function studentHTML(i) {
    let fullName = `${i.name.first} ${i.name.last}`;
    let html = `<li class="student-item sf">
                   <div class="student-details">
-                     <img class="avatar" src="${i.picture.thumbnail}" alt="Professional photo of ${fullName}">
+                     <img class="avatar" src="${i.picture.thumbnail}" alt="Profile picture of ${fullName}">
                      <h3>${fullName}</h3>
-                     <span class="email">${i.email}</span>
+                     <p class="email" aria-label="Email address">${i.email}</p>
                   </div>
                   <div class="joined-details">
-                     <span class="date">Joined ${i.registered.date}</span>
+                     <p class="date">Joined ${i.registered.date}</p>
                   </div>
                </li>`;
    return html
@@ -28,28 +44,10 @@ const emptyStudent = `<li class="student-item sb"></li>`;
 /* PAGINATION */
 function paginationHTML(i) {
    let html =  `<li>
-                  <button type="button" class="page-btn">${i}</button>
+                  <button type="button" class="page-btn" aria-label="Page ${i}">${i}</button>
                </li>`;
    return html
 }
-
-/* SEARCH */
-const searchBar = `<label for="search" class="student-search">
-                     <span>Search by name</span>
-                     <input id="search" placeholder="Search by name...">
-                     <button type="button" class='search-btn'>
-                        <img src="img/icn-search.svg" alt="Search icon">
-                     </button>
-                     <button type="button" class='clear-btn'>X</button>
-                  </label>`
-function noResults(input) {
-   const html = `<div class="no-results">
-                     <h3>THERE ARE NO RESULTS FOR <strong>${input}</strong></h3>
-                     <p>Please try again!</p>
-                  </div>`
-   return html
-}
-
 
 
 /* ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ------- STUDENT CARDS */
@@ -177,7 +175,7 @@ document.addEventListener( 'click', (e) => { paginationEvent(e) } );
 document.addEventListener( 'keyup', (e) => { if (e.key === 'Enter') { paginationEvent(e) } } );
 
 /* SEND SEARCH */
-const searchBtn = document.getElementsByClassName('search-btn')[0];
+const searchBtn = document.getElementById('search-btn');
 function sendSearch() {
    let input = searchInput.value;
    searchList(input, data);
@@ -189,7 +187,7 @@ searchBtn.addEventListener( 'click', (e) => { sendSearch() } );
 searchBtn.addEventListener( 'keyup', (e) => { if (e.key === 'Enter') { sendSearch() } } );
 
 /* CLEAR SEARCH */
-const clearBtn = document.getElementsByClassName('clear-btn')[0];
+const clearBtn = document.getElementById('clear-btn');
 
 clearBtn.addEventListener( 'click', (e) => { appInit() } );
 clearBtn.addEventListener( 'keyup', (e) => { if (e.key === 'Enter') { appInit() } } );

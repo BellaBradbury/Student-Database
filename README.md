@@ -41,7 +41,7 @@
 ---2.0--- &nbsp; &nbsp; &nbsp; *IN PROGRESS*
   - *NEW FEATURES*
     - Users can clear the search bar and display all student data via the 'Clear Search' button at the far right of the search bar.
-    - Footer added.
+    - Footer added at bottom of the page providing more information about the application.
   - *UPDATED FEATURES*
     - 'Page' buttons do not appear if there are less than two pages.
     - The no matches/results text has been updated to include the search input in it's response.

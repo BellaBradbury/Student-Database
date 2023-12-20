@@ -5,27 +5,30 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Student List</title>
+    <meta name="description" content="Bella Bradbury's mock student database with search and pagination functionality for web developer portfolio.">
     <link href="css/normalize.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
   </head>
 
   <body>
-    <div class="page">
-      <header class="header">
-        <h2>Students</h2>  
-        <!-- SEARCH BAR INSERTED DYNAMICALLY VIA SCRIPT.JS -->
-      </header>
-      
-      <ul class="student-list">
-        <!-- STUDENT CARDS INSERTED DYNAMICALLY VIA SCRIPT.JS -->
-      </ul>
+    <header>
+      <h2>Students</h2>  
+      <!-- SEARCH BAR INSERTED DYNAMICALLY VIA SCRIPT.JS -->
+    </header>
+    
+    <ul id="student-list" aria-label="Student data">
+      <!-- STUDENT CARDS INSERTED DYNAMICALLY VIA SCRIPT.JS -->
+    </ul>
 
-      <div class="pagination">
-        <ul class="link-list">
-          <!-- PAGINATION BUTTONS INSERTED DYNAMICALLY VIA SCRIPT.JS -->
-        </ul>
-      </div>
-    </div>
+    <ul id="pagination" aria-label="Page buttons">
+      <!-- PAGINATION BUTTONS INSERTED DYNAMICALLY VIA SCRIPT.JS -->
+    </ul>
+
+    <footer class="content">
+      <a id="developer" href="https://bellabradbury.github.io/" target="_blank" aria-description="Open developer's website in new tab">Developed by Bella Bradbury</a>
+      <p class="v-num">version 2.0</p>
+      <p class="cpyrt">&copy; bella bradbury, 2023</p>
+    </footer>
 
     <script src="js/data.js"></script> 
     <script src="js/script.js"></script>
