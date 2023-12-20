@@ -1,6 +1,6 @@
-# SYSTEM FILES
-.vscode
+# STYSTEM
 .DS_Store
+.vscode
 
-# ORIGINAL PROJECT
-x_init_submits/
+# PAST VERSIONS
+/x_init_submits

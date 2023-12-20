@@ -1,75 +1,43 @@
 <!DOCTYPE html>
+
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Student List</title>
-  <link href="css/reset.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Student List</title>
+    <meta name="description" content="Bella Bradbury's mock student database with search and pagination functionality for web developer portfolio.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+  </head>
 
-  <div class="page">
-
-    <header class="header">
-      <h2>Students</h2>
-      
-        <!-- Extra Credit: Dynamically insert search form here  
-        
-          EXAMPLE - Search form:
-
-          <label for="search" class="student-search">
-            <span>Search by name</span>
-            <input id="search" placeholder="Search by name...">
-            <button type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
-          </label>
-        
-        -->
-
+  <body>
+    <header>
+      <h2>Students</h2>  
+      <!-- SEARCH BAR INSERTED DYNAMICALLY VIA SCRIPT.JS -->
     </header>
     
-    <ul class="student-list">
-
-      <!-- Dynamically insert students here
-        
-        EXAMPLE - Student list item:
-
-        <li class="student-item cf">
-          <div class="student-details">
-            <img class="avatar" src="https://randomuser.me/api/portraits/women/25.jpg" alt="Profile Picture">
-            <h3>Ethel Dean</h3>
-            <span class="email">ethel.dean@example.com</span>
-          </div>
-          <div class="joined-details">
-            <span class="date">Joined 12-15-2005</span>
-          </div>
-        </li>
-
-      -->
-        
+    <ul id="student-list" aria-label="Student data">
+      <!-- STUDENT CARDS INSERTED DYNAMICALLY VIA SCRIPT.JS -->
     </ul>
 
-    <div class="pagination">
-      <ul class="link-list">
+    <ul id="pagination" aria-label="Page buttons">
+      <!-- PAGINATION BUTTONS INSERTED DYNAMICALLY VIA SCRIPT.JS -->
+    </ul>
 
-        <!-- Dynamically insert pagination buttons here
+    <footer class="content">
+      <a id="developer" href="https://bellabradbury.github.io/" target="_blank" aria-description="Open developer's website in new tab">Developed by Bella Bradbury</a>
+      <div>
+        <p class="v-num">version 2.0</p>
+        <p class="cpyrt">&copy; bella bradbury, 2023</p>  
+      </div>
+    </footer>
 
-          EXAMPLE - Two pagination buttons, one with active class, one without:
-            
-          <li>
-            <button type="button" class="active">1</button>
-          </li>
-          <li>
-            <button type="button">2</button>
-          </li>
-      
-        -->
-
-      </ul>
-    </div>
-    
-  </div>
-  <script src="js/data.js"></script> 
-  <script src="js/script.js"></script>
-</body>
+    <script src="js/data.js"></script> 
+    <script src="js/script.js"></script>
+  </body>
 </html>
+
+ <!-- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------  -->
+ <!-- Bella Bradbury, 2023  -->
