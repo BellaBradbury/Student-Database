@@ -29,7 +29,7 @@ function studentHTML(i) {
    let fullName = `${i.name.first} ${i.name.last}`;
    let html = `<li class="student-item sf">
                   <div class="student-details">
-                     <img class="avatar" src="${i.picture.thumbnail}" alt="Profile picture of ${fullName}">
+                     <img class="avatar" src="${i.picture.large}" alt="Profile picture of ${fullName}">
                      <h3>${fullName}</h3>
                      <p class="email" aria-label="Email address">${i.email}</p>
                   </div>
